@@ -193,7 +193,7 @@ with open('PreviousHrefData.text') as f:
         tweet(df, date_list)
 
         # 最新発表分をテキストファイルへ書き込み
-        with open('covid19/PreviousHrefData.text', mode='w') as f:
+        with open('PreviousHrefData.text', mode='w') as f:
 
             f.write(re.search('[^/]+$', a_tag_list[0].get('href')).group())
 
