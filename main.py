@@ -155,7 +155,7 @@ def tweet(df, date_list):
 
     api = tweepy.API(auth)
 
-    text_message = f'【奈良県】コロナ感染者数前日比\n\n'
+    text_message = f'【奈良県】コロナ新規感染者数(前日比)\n\n'
 
     text_message += f'前日: {"{:,}".format(df.iloc[-1]["前日"])} 人\n本日: {"{:,}".format(df.iloc[-1]["本日"])} 人\n'
 
