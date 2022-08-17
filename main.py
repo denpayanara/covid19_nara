@@ -182,7 +182,7 @@ a_tag_list = soup.select('div#ContentPane > div:nth-of-type(4) div.Contents > p 
 # 前回発表分と最新発表分を比較
 with open('PreviousHrefData.text') as f:
     
-    if f.read() != a_tag_list[0].get('href'):
+    if f.read() != re.search('[^/]+$', a_tag_list[0].get('href')).group():
 
         print('プログラムを実行します。')
 
@@ -197,9 +197,7 @@ with open('PreviousHrefData.text') as f:
 
             f.write(re.search('[^/]+$', a_tag_list[0].get('href')).group())
 
-    else: # プログラムを終了させる記述
+    else:
         
         print('プログラムを終了します。')
         sys.exit()
-
-
