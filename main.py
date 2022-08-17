@@ -15,17 +15,17 @@ import tweepy
 
 # 和暦を西暦に変換
 # https://myfrankblog.com/convert_japanese_calendar_to_western_calendar/
-
-eraDict = {
-    "明治": 1868,
-    "大正": 1912,
-    "昭和": 1926,
-    "平成": 1989,
-    "令和": 2019,
-}
- 
  
 def japanese_calendar_converter(text):
+
+    eraDict = {
+        "明治": 1868,
+        "大正": 1912,
+        "昭和": 1926,
+        "平成": 1989,
+        "令和": 2019,
+    }
+
     # 正規化
     normalized_text = unicodedata.normalize("NFKC", text)
  
@@ -94,7 +94,7 @@ def mkimg(df, date_list):
     img = Image.new('RGB', (1280, 720), color=(0, 0, 0))
 
     draw = ImageDraw.Draw(img)
-    
+
     font20 = ImageFont.truetype('NotoSerifJP-Regular.otf', 20)
 
     for i, r in df.iterrows():
@@ -148,7 +148,6 @@ def mkimg(df, date_list):
 
 
 def tweet(df, date_list):
-
 
     auth = tweepy.OAuthHandler(os.environ['API_KEY'], os.environ['API_SECRET_KEY'])
 
